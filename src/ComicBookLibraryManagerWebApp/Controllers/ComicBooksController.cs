@@ -147,9 +147,11 @@ namespace ComicBookLibraryManagerWebApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            // TODO Get the comic book.
             // Include the "Series" navigation property.
-            var comicBook = new ComicBook();
+            var comicBook = _context.ComicBooks
+                .Include(cb => cb.Series)
+                .Where(cb => cb.Id == id)
+                .SingleOrDefault();
 
             if (comicBook == null)
             {
@@ -162,7 +164,9 @@ namespace ComicBookLibraryManagerWebApp.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            // TODO Delete the comic book.
+            var comicBook = new ComicBook() { Id = id };
+            _context.Entry(comicBook).State = EntityState.Deleted;
+            _context.SaveChanges();
 
             TempData["Message"] = "Your comic book was successfully deleted!";
 
