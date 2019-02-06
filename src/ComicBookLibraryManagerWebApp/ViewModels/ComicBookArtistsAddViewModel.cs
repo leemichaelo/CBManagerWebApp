@@ -35,7 +35,7 @@ namespace ComicBookLibraryManagerWebApp.ViewModels
         /// <summary>
         /// Initializes the view model.
         /// </summary>
-        public void Init()
+        public void Init(Context _context)
         {
             ArtistSelectListItems = new SelectList(
                 new List<Artist>(),

@@ -1,4 +1,5 @@
 ﻿using ComicBookShared.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -13,6 +14,7 @@ namespace ComicBookShared.Data
         public DbSet<Series> Series { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<ComicBookArtist> ComicBookArtists { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -25,6 +27,11 @@ namespace ComicBookShared.Data
             modelBuilder.Entity<ComicBook>()
                 .Property(cb => cb.AverageRating)
                 .HasPrecision(5, 2);
+        }
+
+        public static implicit operator ContextBoundObject(Context v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
