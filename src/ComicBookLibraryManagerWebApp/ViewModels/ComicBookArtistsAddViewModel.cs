@@ -38,10 +38,10 @@ namespace ComicBookLibraryManagerWebApp.ViewModels
         public void Init(Context _context)
         {
             ArtistSelectListItems = new SelectList(
-                new List<Artist>(),
+                _context.Artists.OrderBy(a => a.Name).ToList(),
                 "Id", "Name");
             RoleSelectListItems = new SelectList(
-                new List<Role>(),
+                _context.Roles.OrderBy(r => r.Name).ToList(),
                 "Id", "Name");
         }
     }
