@@ -183,6 +183,10 @@
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ComicBookLibraryManager\ComicBookLibraryManager.csproj">
+      <Project>{D30BE089-4B9E-4532-ABE8-5F33EF03C585}</Project>
+      <Name>ComicBookLibraryManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ComicBookShared\ComicBookShared.csproj">
       <Project>{2b708570-4c88-4567-b002-d492b871fee9}</Project>
       <Name>ComicBookShared</Name>
