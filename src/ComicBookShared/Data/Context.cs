@@ -28,10 +28,5 @@ namespace ComicBookShared.Data
                 .Property(cb => cb.AverageRating)
                 .HasPrecision(5, 2);
         }
-
-        public static implicit operator ContextBoundObject(Context v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

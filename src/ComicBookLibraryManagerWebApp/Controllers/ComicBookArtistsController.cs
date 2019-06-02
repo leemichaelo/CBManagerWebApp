@@ -69,7 +69,7 @@ namespace ComicBookLibraryManagerWebApp.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {

@@ -29,6 +29,7 @@ namespace ComicBookLibraryManagerWebApp.Controllers
             return View(comicBooks);
         }
 
+        [HttpGet]
         public ActionResult Detail(int? id)
         {
             if (id == null)
@@ -49,11 +50,11 @@ namespace ComicBookLibraryManagerWebApp.Controllers
             return View(comicBook);
         }
 
+        [HttpGet]
         public ActionResult Add()
         {
             var viewModel = new ComicBooksAddViewModel();
 
-            // TODO Pass the Context class to the view model "Init" method.
             viewModel.Init(Repository);
 
             return View(viewModel);
@@ -81,6 +82,7 @@ namespace ComicBookLibraryManagerWebApp.Controllers
             return View(viewModel);
         }
 
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -125,6 +127,7 @@ namespace ComicBookLibraryManagerWebApp.Controllers
             return View(viewModel);
         }
 
+        [HttpGet]
         public ActionResult Delete(int? id)
         {
             if (id == null)

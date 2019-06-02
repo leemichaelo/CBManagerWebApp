@@ -8,14 +8,13 @@ namespace ComicBookShared.Data
     {
         protected Context Context { get; private set; }
 
-
         //BaseRepository(context)
         public BaseRepository(Context context)
         {
             Context = context;
         }
 
-        public abstract TEntity Get(int id, bool includRelatedEntites);
+        public abstract TEntity Get(int id, bool includRelatedEntites = true);
         public abstract IList<TEntity> GetList();
 
 
@@ -23,6 +22,7 @@ namespace ComicBookShared.Data
         public void Add(TEntity entity)
         {
             Context.Set<TEntity>().Add(entity);
+            Context.SaveChanges();
         }
 
         //Update()
